@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <title>Iniciar Sesión</title>
+  </head>
+  <body>
+    <div class="flex items-center justify-center min-h-screen bg-fuchsia-100">
+      <div
+        class="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0"
+      >
+        <div class="flex flex-col justify-center p-8 md:p-14">
+          <span class="mb-3 text-4xl font-bold">Bienvenido </span>
+          <span class="font-light text-gray-800 mb-8"
+            >Bienvenido de nuevo, Ingrese sus datos por favor</span
+          >
+          <form>
+            <div class="py-4">
+              <span class="mb-2 text-xl font-semibold">Email</span>
+              <input
+                type="email"
+                class="w-full p-1.5 border border-gray-500 rounded-md placeholder:font-light placeholder:text-gray-500"
+                name="correo"
+                id="correo"
+                required
+              />
+            </div>
+
+            <div class="py-2">
+              <span class="mb-2 text-xl font-semibold">Contraseña</span>
+              <div class="relative">
+                <input
+                  type="password"
+                  required
+                  name="pass"
+                  id="pass"
+                  class="w-full p-1.5 border border-gray-500 rounded-md placeholder:font-light placeholder:text-gray-500 pr-10"
+                />
+                <button
+                  type="button"
+                  id="togglePassword"
+                  class="absolute inset-y-0 right-0 flex items-center px-3"
+                  tabindex="-1"
+                >
+                  <img
+                    id="eyeIcon"
+                    src="img/closeeye.png"
+                    alt="Mostrar contraseña"
+                    class="h-5 w-5"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between w-full py-4">
+              <div class="flex justify-left w-full">
+                <input
+                  type="checkbox"
+                  name="check"
+                  id="check"
+                  class="mr-0.5 just"
+                />
+                <span>Recuerdame</span>
+              </div>
+            </div>
+            <button
+              id="btn-login"
+              name="btn-login"
+              type="button"
+              class="w-full border border-black bg-black text-white p-2 rounded-lg mt-8 hover:border-gray-400 hover:bg-white hover:text-black transition duration-300 ease-in-out"
+            >
+              Ingresar
+            </button>
+
+            <!-- Elemento para mostrar mensajes al usuario -->
+            <p
+              id="message"
+              class="text-center text-sm min-h-[24px] opacity-0 translate-y-4 transition-all duration-500 ease-in-out"
+            ></p>
+            <!-- Boton de login con google desactivado por el momento -->
+            <!--<button
+              class="w-full border border-gray-400 p-2 rounded-lg mb-6 hover:bg-black hover:text-white transition duration-300 ease-in-out"
+            >
+              <img src="img/google.png" alt="img" class="w-8 h-8 inline mr-1" />
+              Ingresar con Google
+            </button> -->
+          </form>
+        </div>
+        <div class="relative">
+          <img
+            src="img/city.gif"
+            alt="img"
+            class="w-[430px] h-[600px] hidden rounded-r-2xl md:block object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Enlace del JS -->
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
