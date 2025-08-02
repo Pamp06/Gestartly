@@ -6,7 +6,7 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// Datos de configuración de Firebase
+// Datos de configuracion del Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyAkkRZ0jku2cav6MVcNJjJ0_dtufg6nk2Y",
   authDomain: "documentosweb1-5df51.firebaseapp.com",
@@ -29,6 +29,27 @@ const messageParagraph = document.getElementById("message");
 const passInput = document.getElementById("pass");
 const togglePassword = document.getElementById("togglePassword");
 const eyeIcon = document.getElementById("eyeIcon");
+
+// Al cargar la página, intenta login automático si hay datos guardados
+/*window.addEventListener("DOMContentLoaded", async () => {
+  const savedEmail = localStorage.getItem("recuerdame");
+  const savedPass = localStorage.getItem("recuerdamePass");
+  if (savedEmail && savedPass) {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        savedEmail.trim().toLowerCase().replace(/\s+/g, ""),
+        savedPass
+      );
+      window.location.href = "coffee-shop-html-template/index.html";
+    } catch (error) {
+      console.error("Error auto-login:", error.message);
+      // Limpia datos si el login automático falla
+      localStorage.removeItem("recuerdame");
+      localStorage.removeItem("recuerdamePass");
+    }
+  }
+});*/
 
 function showMessage(msg, isError = false) {
   messageParagraph.style.color = isError ? "red" : "green";
@@ -81,7 +102,7 @@ loginButton.addEventListener("click", async () => {
     );*/
 
     // Esto redirige al navegador a la página 'generic.html'
-    window.location.href = "coffee-shop-html-template/index.html";
+    window.location.href = "principal/inicio.html";
   } catch (error) {
     // Si ocurre un error, lo registramos en la consola para depuración
     console.error("Error al iniciar sesión:", error.message);
