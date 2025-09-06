@@ -30,7 +30,7 @@ const passInput = document.getElementById("pass");
 const togglePassword = document.getElementById("togglePassword");
 const eyeIcon = document.getElementById("eyeIcon");
 
-// Al cargar la página, intenta login automático si hay datos guardados
+// Al cargar la página, intenta login automático si hay datos guardadas
 /*window.addEventListener("DOMContentLoaded", async () => {
   const savedEmail = localStorage.getItem("recuerdame");
   const savedPass = localStorage.getItem("recuerdamePass");
