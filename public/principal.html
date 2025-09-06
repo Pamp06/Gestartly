@@ -16,33 +16,26 @@
         <button id="menuBtn" class="p-2 text-gray-700">☰</button>
       </div>
       <div class="flex items-center h-16">
-        <img src="img/logo2.png" class="h-4.5 lg:h-8 mx-2" alt="Logo" />
+        <img src="img/logo2.png" class="h-6 lg:h-9 mx-2" alt="Logo" />
       </div>
 
       <!-- DERECHA: notificaciones + usuario -->
       <div class="absolute right-0 flex items-center gap-4 mx-6">
         <div class="relative" id="userMenuWrapper">
+          <!-- Flecha PNG en el menú de usuario -->
           <button
             id="userMenuBtn"
             class="flex items-center gap-2 focus:outline-none select-none"
           >
             <img src="img/perro con chupon.jpg" class="h-8 w-8 rounded-full" />
             <span class="lg:block text-sm font-semibold">Lorem ipsum</span>
-            <!-- Flecha -->
-            <svg
+            <!-- Flecha PNG -->
+            <img
               id="arrowIcon"
+              src="img/flecha.png"
+              alt="Abrir menú"
               class="w-4 h-4 ml-1 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 9l-7 7-7-7"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            />
           </button>
           <div
             id="userDropdown"
@@ -122,22 +115,17 @@
         <div class="flex-1 flex justify-center px-4">
           <div class="w-full left-0 relative">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-              <!-- Ícono lupa SVG -->
-              <svg
-                class="w-5 h-5 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
+              <!-- Lupa PNG -->
+              <img
+                src="img/lupa.png"
+                alt="Buscar"
+                class="w-5 h-5 object-contain"
+              />
             </span>
             <input
               type="search"
               placeholder="Buscar..."
-              class="w-full border rounded pl-9.5 pr-2 py-2 text-sm"
+              class="w-full border rounded pl-10 pr-2 py-2 text-sm"
             />
           </div>
         </div>
