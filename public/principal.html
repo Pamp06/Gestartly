@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-white">
+    <!-- Overlay (solo móvil) -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
+    ></div>
+
+    <!-- Sidebar -->
+    <aside
+      id="sidebar"
+      class="fixed inset-y-0 left-0 z-50 w-80 bg-indigo-600 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
+    >
+      <!-- Botón cerrar solo en móvil -->
+      <button id="closeBtn" class="lg:hidden mb-4 text-white text-xl">✖</button>
+
+      <div class="flex items-center h-16">
+        <img src="img/Logo1.png" class="h-8" alt="Logo" />
+      </div>
+
+      <nav class="flex-1 mt-6 space-y-2">
+        <a
+          href="#"
+          class="block p-2 rounded-md text-sm font-semibold bg-indigo-700 text-white"
+          >🏠 Dashboard</a
+        >
+        <a
+          href="#"
+          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
+          >👥 Team</a
+        >
+        <a
+          href="#"
+          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
+          >📂 Projects</a
+        >
+        <a
+          href="#"
+          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
+          >📅 Calendar</a
+        >
+        <a
+          href="#"
+          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
+          >📑 Documents</a
+        >
+        <a
+          href="#"
+          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
+          >📊 Reports</a
+        >
+      </nav>
+
+      <div class="mt-auto">
+        <a
+          href="#"
+          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
+          >⚙️ Settings</a
+        >
+      </div>
+    </aside>
+
+    <!-- CONTENIDO desplazado en PC -->
+    <div class="lg:pl-80">
+      <!-- Topbar -->
+      <header class="sticky top-0 flex items-center h-16 px-4 bg-white shadow">
+        <!-- IZQUIERDA: botón móvil -->
+        <div class="flex items-center lg:hidden">
+          <button id="menuBtn" class="p-2 text-gray-700">☰</button>
+        </div>
+
+        <!-- CENTRO: buscador -->
+        <div class="flex-1 flex justify-center lg:justify-start px-4">
+          <div class="w-full max-w-sm">
+            <input
+              type="search"
+              placeholder="Buscar"
+              class="w-full border rounded px-3 py-1 text-sm"
+            />
+          </div>
+        </div>
+
+        <!-- DERECHA: notificaciones + usuario -->
+        <div class="flex items-center gap-4">
+          <button class="text-gray-500">🔔</button>
+          <div class="relative group">
+            <button class="flex items-center gap-2">
+              <img
+                src="img/perro con chupon.jpg"
+                class="h-8 w-8 rounded-full"
+              />
+              <span class="hidden lg:block text-sm font-semibold"
+                >Lorem ipsum</span
+              >
+            </button>
+            <div
+              class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg hidden group-hover:block"
+            >
+              <a href="#" class="block px-3 py-2 text-sm hover:bg-gray-100"
+                >Perfil</a
+              >
+              <a href="#" class="block px-3 py-2 text-sm hover:bg-gray-100"
+                >Cerrar sesión</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Contenido principal -->
+      <main class="p-4">
+        <h1 class="text-xl font-bold">Bienvenido 👋</h1>
+        <p class="text-gray-600">Aquí va tu contenido principal.</p>
+      </main>
+    </div>
+
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+      const menuBtn = document.getElementById("menuBtn");
+      const closeBtn = document.getElementById("closeBtn");
+
+      function openSidebar() {
+        sidebar.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      }
+
+      function closeSidebar() {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      }
+
+      menuBtn.addEventListener("click", openSidebar);
+      closeBtn.addEventListener("click", closeSidebar);
+      overlay.addEventListener("click", closeSidebar);
+    </script>
+  </body>
+</html>
