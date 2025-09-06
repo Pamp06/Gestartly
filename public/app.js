@@ -102,7 +102,7 @@ loginButton.addEventListener("click", async () => {
     );*/
 
     // Esto redirige al navegador a la página 'generic.html'
-    window.location.href = "principal/inicio.html";
+    window.location.href = "principal.html";
   } catch (error) {
     // Si ocurre un error, lo registramos en la consola para depuración
     console.error("Error al iniciar sesión:", error.message);
