@@ -41,10 +41,13 @@
             id="userDropdown"
             class="absolute right-0 mt-1 w-38 bg-white rounded-md shadow-lg transition-all duration-200 origin-top scale-95 opacity-0 pointer-events-none"
           >
+            <!--  
             <a href="#" class="block px-3 py-2 teaaaxt-sm hover:bg-gray-100"
               >Perfil</a
-            >
-            <a href="#" class="block px-3 py-2 text-sm hover:bg-gray-100"
+            >-->
+            <a
+              href="index.html"
+              class="text-center block px-3 py-2 text-sm hover:bg-gray-100"
               >Cerrar sesión</a
             >
           </div>
@@ -61,48 +64,64 @@
     <!-- Sidebar: empieza debajo del header -->
     <aside
       id="sidebar"
-      class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-600 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
+      class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-900 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
     >
       <!-- Botón cerrar solo en móvil -->
-      <button id="closeBtn" class="lg:hidden mb-4 text-white text-xl">✖</button>
+      <button
+        id="closeBtn"
+        class="flex ml-auto rounded-xs lg:hidden mb-3 text-white text-xl hover:bg-indigo-400"
+      >
+        ✖
+      </button>
 
-      <nav class="flex-1 mt-6 space-y-2">
+      <nav class="flex-1 mt-1 space-y-2.5">
         <a
-          href="#"
-          class="block p-2 rounded-md text-sm font-semibold bg-indigo-700 text-white"
-          >🏠 Inicio</a
-        >
-        <a
-          href="#"
-          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
-          >👥 Equipo</a
-        >
-        <a
-          href="#"
-          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
-          >📂 Proyectos</a
-        >
-        <a
-          href="#"
-          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
-          >📅 Calendario</a
-        >
-        <a
-          href="#"
-          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
-          >📑 Documentos</a
-        >
-        <a
-          href="#"
-          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
-          >📊 Reportes</a
-        >
+          href=""
+          class="flex items-center p-2 ml-8 mr-8 rounded-md text-white bg-indigo-700 hover:bg-indigo-600 shadow-md"
+          ><img src="img/wupload.png" class="w-5 h-5 ml-3" />
+          <span class="ml-1.5">Nuevo archivo</span>
+        </a>
+
+        <hr class="my-6 -mx-6 border-t border-indigo-200" />
+
+        <div class="mt-0">
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md"
+            >🏠 Inicio</a
+          >
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >👥 Equipo</a
+          >
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >📂 Proyectos</a
+          >
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >📅 Calendario</a
+          >
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >📑 Documentos</a
+          >
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >📊 Reportes</a
+          >
+        </div>
       </nav>
 
       <div class="mt-auto">
         <a
           href="#"
-          class="block p-2 rounded-md text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white"
+          class="block p-3 my-6 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
           >⚙️ Configuración</a
         >
       </div>
