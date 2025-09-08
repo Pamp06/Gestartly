@@ -1,5 +1,5 @@
 const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
+let overlay = document.getElementById("overlay");
 const menuBtn = document.getElementById("menuBtn");
 const closeBtn = document.getElementById("closeBtn");
 const userMenuBtn = document.getElementById("userMenuBtn");
@@ -37,21 +37,29 @@ function closeUserMenu() {
   menuOpen = false;
 }
 
-menuBtn.addEventListener("click", openSidebar);
-closeBtn.addEventListener("click", closeSidebar);
-overlay.addEventListener("click", closeSidebar);
+// Sidebar móvil
+if (menuBtn && sidebar && overlay) {
+  menuBtn.addEventListener("click", openSidebar);
+  overlay.addEventListener("click", closeSidebar);
+}
+if (closeBtn && sidebar && overlay) {
+  closeBtn.addEventListener("click", closeSidebar);
+}
 
-userMenuBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  if (menuOpen) {
-    closeUserMenu();
-  } else {
-    openUserMenu();
-  }
-});
+// Menú usuario
+if (userMenuBtn && userDropdown && arrowIcon && userMenuWrapper) {
+  userMenuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (menuOpen) {
+      closeUserMenu();
+    } else {
+      openUserMenu();
+    }
+  });
 
-document.addEventListener("click", (e) => {
-  if (menuOpen && !userMenuWrapper.contains(e.target)) {
-    closeUserMenu();
-  }
-});
+  document.addEventListener("click", (e) => {
+    if (menuOpen && !userMenuWrapper.contains(e.target)) {
+      closeUserMenu();
+    }
+  });
+}
