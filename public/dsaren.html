@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panel</title>
     <link href="./output.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
+    <title>Tramites Saren</title>
   </head>
-  <body class="bg-white">
+  <body>
     <!-- Topbar: ahora ocupa todo el ancho arriba -->
     <header
       class="fixed top-0 left-0 w-full z-50 flex items-center h-13 px-4 bg-white shadow-md"
@@ -150,6 +150,16 @@
       </div>
     </aside>
 
+    <!-- Botón para colapsar/expandir sidebar -->
+    <button
+      id="collapseSidebarBtn"
+      class="flex ml-auto rounded-xs mb-3 text-white text-xl hover:bg-indigo-400"
+      style="position: absolute; top: 1rem; right: -1.5rem; z-index: 60"
+    >
+      <span>&#9776;</span>
+      <!-- Icono de menú -->
+    </button>
+
     <!-- Header de la barra de busqueda -->
     <div class="pt-13 lg:pl-69">
       <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md">
@@ -175,7 +185,7 @@
 
       <!-- Contenido principal -->
       <main class="p-4">
-        <h1 class="text-xl font-bold">Bienvenido 👋</h1>
+        <h1 class="text-xl font-bold">SAREN DOCUMENTOS</h1>
         <p class="text-gray-600">Aquí va tu contenido principal.</p>
       </main>
     </div>

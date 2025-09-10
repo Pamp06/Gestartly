@@ -63,3 +63,40 @@ if (userMenuBtn && userDropdown && arrowIcon && userMenuWrapper) {
     }
   });
 }
+
+// Menu desplegable Nuevo archivo
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("bdesplegable");
+  const menu = document.getElementById("mdesplegable");
+
+  if (btn && menu) {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const isOpen = menu.classList.contains("opacity-100");
+      if (isOpen) {
+        menu.classList.remove(
+          "opacity-100",
+          "scale-y-100",
+          "pointer-events-auto"
+        );
+        menu.classList.add("opacity-0", "scale-y-0", "pointer-events-none");
+      } else {
+        menu.classList.add("opacity-100", "scale-y-100", "pointer-events-auto");
+        menu.classList.remove("opacity-0", "scale-y-0", "pointer-events-none");
+      }
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener("click", function (e) {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove(
+          "opacity-100",
+          "scale-y-100",
+          "pointer-events-auto"
+        );
+        menu.classList.add("opacity-0", "scale-y-0", "pointer-events-none");
+      }
+    });
+  }
+});
