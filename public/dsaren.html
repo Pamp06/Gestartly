@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentos Saren</title>
     <link href="./output.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
-    <title>Tramites Saren</title>
   </head>
-  <body>
+  <body class="bg-white">
     <!-- Topbar: ahora ocupa todo el ancho arriba -->
     <header
       class="fixed top-0 left-0 w-full z-50 flex items-center h-13 px-4 bg-white shadow-md"
@@ -58,108 +58,6 @@
       </div>
     </header>
 
-    <!-- Overlay -->
-    <div
-      id="overlay"
-      class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
-    ></div>
-
-    <!-- Sidebar -->
-    <aside
-      id="sidebar"
-      class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-900 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
-    >
-      <!-- Boton cerrar solo en telefono -->
-      <button
-        id="closeBtn"
-        class="flex ml-auto rounded-xs lg:hidden mb-3 text-white text-xl hover:bg-indigo-400"
-      >
-        ✖
-      </button>
-
-      <nav id="bplegable" class="flex-1 mt-1 space-y-2.5">
-        <div class="relative">
-          <button
-            id="bdesplegable"
-            class="flex items-center w-42 p-2 ml-8 mr-8 rounded-md text-white bg-indigo-700 hover:bg-indigo-600 shadow-md"
-            type="button"
-          >
-            <img src="img/wupload.png" class="w-5 h-5 ml-3" />
-            <span class="ml-1.5">Nuevo archivo</span>
-          </button>
-          <div
-            id="mdesplegable"
-            class="absolute right-8 z-10 mt-1 overflow-hidden bg-indigo-700 rounded-md shadow-lg whitespace-nowrap origin-top-right transition-all duration-300 ease-out opacity-0 scale-y-0 pointer-events-none"
-          >
-            <ul>
-              <li class="w-42 py-2 text-white hover:bg-indigo-500 text-center">
-                <a href="dsaren.html" class="block">Documentos Saren</a>
-              </li>
-              <li class="w-42 py-2 text-white hover:bg-indigo-500 text-center">
-                <a href="#" class="block">Opción 2</a>
-              </li>
-              <li class="w-42 py-2 text-white hover:bg-indigo-500 text-center">
-                <a href="#" class="block">Opción 3</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <hr class="my-6 -mx-6 border-t border-indigo-200" />
-
-        <div class="mt-0">
-          <a
-            href="principal.html"
-            class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md"
-            >🏠 Inicio</a
-          >
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-            >👥 Equipo</a
-          >
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-            >📂 Proyectos</a
-          >
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-            >📅 Calendario</a
-          >
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-            >📑 Documentos</a
-          >
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-            >📊 Reportes</a
-          >
-        </div>
-      </nav>
-
-      <div class="mt-auto">
-        <a
-          href="#"
-          class="block p-3 my-6 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-          >⚙️ Configuración</a
-        >
-      </div>
-    </aside>
-
-    <!-- Botón para colapsar/expandir sidebar -->
-    <button
-      id="collapseSidebarBtn"
-      class="flex ml-auto rounded-xs mb-3 text-white text-xl hover:bg-indigo-400"
-      style="position: absolute; top: 1rem; right: -1.5rem; z-index: 60"
-    >
-      <span>&#9776;</span>
-      <!-- Icono de menú -->
-    </button>
-
     <!-- Header de la barra de busqueda -->
     <div class="pt-13 lg:pl-69">
       <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md">
@@ -179,14 +77,283 @@
               placeholder="Buscar..."
               class="w-full border rounded pl-10 pr-2 py-2 text-sm"
             />
+            <button
+              type="submit"
+              class="text-white absolute bg-indigo-700 hover:bg-indigo-900 font-medium rounded-r px-5 text-sm p-2.5 h-full end-0"
+            >
+              Buscar
+            </button>
           </div>
         </div>
       </header>
 
+      <!-- Overlay -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
+      ></div>
+
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-900 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
+      >
+        <!-- Boton cerrar solo en telefono -->
+        <button
+          id="closeBtn"
+          class="flex ml-auto rounded-xs lg:hidden mb-3 text-white text-xl hover:bg-indigo-400"
+        >
+          ✖
+        </button>
+
+        <nav id="bplegable" class="flex-1 mt-1 space-y-2.5">
+          <div class="relative">
+            <button
+              id="bdesplegable"
+              class="flex items-center w-42 p-2 ml-8 mr-8 rounded-md text-white bg-indigo-700 hover:bg-indigo-600 shadow-md"
+              type="button"
+            >
+              <img src="img/wupload.png" class="w-5 h-5 ml-3" />
+              <span class="ml-1.5">Nuevo archivo</span>
+            </button>
+            <div
+              id="mdesplegable"
+              class="absolute right-8 z-10 mt-1 overflow-hidden bg-indigo-700 rounded-md shadow-lg whitespace-nowrap origin-top-right transition-all duration-300 ease-out opacity-0 scale-y-0 pointer-events-none"
+            >
+              <ul>
+                <li
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center pointer-events-none opacity-50 cursor-not-allowed"
+                >
+                  <a href="" class="block">Documentos Saren</a>
+                </li>
+                <li
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center"
+                >
+                  <a href="#" class="block">Opción 2</a>
+                </li>
+                <li
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center"
+                >
+                  <a href="#" class="block">Opción 3</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="my-6 -mx-6 border-t border-indigo-200" />
+
+          <div class="mt-0">
+            <a
+              href="principal.html"
+              class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md"
+              >🏠 Inicio</a
+            >
+            <a
+              href="#"
+              class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+              >📑 Documentos</a
+            >
+            <!-- Sidebar 
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >👥 Equipo</a
+          >
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >📂 Proyectos</a
+          >
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >📅 Calendario</a
+          >
+          <a
+            href="#"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >📊 Reportes</a
+          >-->
+          </div>
+        </nav>
+
+        <div class="mt-auto">
+          <a
+            href="#"
+            class="block p-3 my-6 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >⚙️ Configuración</a
+          >
+        </div>
+      </aside>
+
       <!-- Contenido principal -->
-      <main class="p-4">
-        <h1 class="text-xl font-bold">SAREN DOCUMENTOS</h1>
-        <p class="text-gray-600">Aquí va tu contenido principal.</p>
+      <main class="p-6 mb-10">
+        <form>
+          <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <div>
+              <label
+                for="first_name"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Nombre</label
+              >
+              <input
+                type="text"
+                id="first_name"
+                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="John"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="last_name"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Apellido</label
+              >
+              <input
+                type="text"
+                id="last_name"
+                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Doe"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="company"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Empresa</label
+              >
+              <input
+                type="text"
+                id="company"
+                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Flowbite"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="phone"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Número de teléfono</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="123-45-678"
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="website"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >URL del sitio web</label
+              >
+              <input
+                type="url"
+                id="website"
+                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="flowbite.com"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="visitors"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Visitantes únicos (por mes)</label
+              >
+              <input
+                type="number"
+                id="visitors"
+                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=""
+                required
+              />
+            </div>
+          </div>
+          <div class="mb-6">
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Correo electrónico</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="john.doe@company.com"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="password"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Contraseña</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="•••••••••"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="confirm_password"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Confirmar contraseña</label
+            >
+            <input
+              type="password"
+              id="confirm_password"
+              class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="•••••••••"
+              required
+            />
+          </div>
+          <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+              <input
+                id="remember"
+                type="checkbox"
+                value=""
+                class="w-4 h-4 border border-gray-400 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300"
+                required
+              />
+            </div>
+            <label for="remember" class="ms-2 text-sm font-medium text-gray-900"
+              >Acepto los
+              <a href="#" class="text-blue-600 hover:underline"
+                >términos y condiciones</a
+              >.</label
+            >
+          </div>
+
+          <label class="block mb-2 text-sm font-medium text-gray-900"
+            >Subir un Archivo</label
+          >
+          <input
+            class="file:py-2.5 file:px-6 file:rounded-l-lg file:text-sm file:bg-indigo-700 file:text-white hover:file:bg-indigo-900 w-full border border-gray-400 rounded-lg bg-gray-50 cursor-pointer"
+            id="file_input"
+            type="file"
+          />
+
+          <hr class="my-4 border-t border-gray-400" />
+
+          <button
+            type="submit"
+            class="text-white absolute bg-indigo-700 hover:bg-indigo-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-auto"
+          >
+            Enviar
+          </button>
+        </form>
       </main>
     </div>
 
