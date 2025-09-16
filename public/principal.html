@@ -58,61 +58,103 @@
       </div>
     </header>
 
-    <!-- Overlay -->
-    <div
-      id="overlay"
-      class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
-    ></div>
+    <!-- Header de la barra de busqueda -->
+    <div class="pt-13 lg:pl-69">
+      <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md">
+        <!-- CENTRO: buscador -->
+        <div class="flex-1 flex justify-center px-4">
+          <div class="w-full left-0 relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <!-- Lupa PNG -->
+              <img
+                src="img/lupa.png"
+                alt="Buscar"
+                class="w-5 h-5 object-contain"
+              />
+            </span>
 
-    <!-- Sidebar -->
-    <aside
-      id="sidebar"
-      class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-900 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
-    >
-      <!-- Boton cerrar solo en telefono -->
-      <button
-        id="closeBtn"
-        class="flex ml-auto rounded-xs lg:hidden mb-3 text-white text-xl hover:bg-indigo-400"
-      >
-        ✖
-      </button>
-
-      <nav id="bplegable" class="flex-1 mt-1 space-y-2.5">
-        <div class="relative">
-          <button
-            id="bdesplegable"
-            class="flex items-center w-42 p-2 ml-8 mr-8 rounded-md text-white bg-indigo-700 hover:bg-indigo-600 shadow-md"
-            type="button"
-          >
-            <img src="img/wupload.png" class="w-5 h-5 ml-3" />
-            <span class="ml-1.5">Nuevo archivo</span>
-          </button>
-          <div
-            id="mdesplegable"
-            class="absolute right-8 z-10 mt-1 overflow-hidden bg-indigo-700 rounded-md shadow-lg whitespace-nowrap origin-top-right transition-all duration-300 ease-out opacity-0 scale-y-0 pointer-events-none"
-          >
-            <ul>
-              <li class="w-42 py-2 text-white hover:bg-indigo-500 text-center">
-                <a href="dsaren.html" class="block">Documentos Saren</a>
-              </li>
-              <li class="w-42 py-2 text-white hover:bg-indigo-500 text-center">
-                <a href="#" class="block">Opción 2</a>
-              </li>
-              <li class="w-42 py-2 text-white hover:bg-indigo-500 text-center">
-                <a href="#" class="block">Opción 3</a>
-              </li>
-            </ul>
+            <input
+              type="search"
+              placeholder="Buscar..."
+              class="w-full border rounded pl-10 pr-2 py-2 text-sm"
+            />
+            <button
+              type="submit"
+              class="text-white absolute bg-indigo-700 hover:bg-indigo-900 font-medium rounded-r px-5 text-sm p-2.5 h-full end-0"
+            >
+              Buscar
+            </button>
           </div>
         </div>
+      </header>
 
-        <hr class="my-6 -mx-6 border-t border-indigo-200" />
+      <!-- Overlay -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
+      ></div>
 
-        <div class="mt-0">
-          <a
-            href="principal.html"
-            class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md"
-            >🏠 Inicio</a
-          >
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-900 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
+      >
+        <!-- Boton cerrar solo en telefono -->
+        <button
+          id="closeBtn"
+          class="flex ml-auto rounded-xs lg:hidden mb-3 text-white text-xl hover:bg-indigo-400"
+        >
+          ✖
+        </button>
+
+        <nav id="bplegable" class="flex-1 mt-1 space-y-2.5">
+          <div class="relative">
+            <button
+              id="bdesplegable"
+              class="flex items-center w-42 p-2 ml-8 mr-8 rounded-md text-white bg-indigo-700 hover:bg-indigo-600 shadow-md"
+              type="button"
+            >
+              <img src="img/wupload.png" class="w-5 h-5 ml-3" />
+              <span class="ml-1.5">Nuevo archivo</span>
+            </button>
+            <div
+              id="mdesplegable"
+              class="absolute right-8 z-10 mt-1 overflow-hidden bg-indigo-700 rounded-md shadow-lg whitespace-nowrap origin-top-right transition-all duration-300 ease-out opacity-0 scale-y-0 pointer-events-none"
+            >
+              <ul>
+                <li
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center"
+                >
+                  <a href="dsaren.html" class="block">Documentos Saren</a>
+                </li>
+                <li
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center"
+                >
+                  <a href="#" class="block">Opción 2</a>
+                </li>
+                <li
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center"
+                >
+                  <a href="#" class="block">Opción 3</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="my-6 -mx-6 border-t border-indigo-200" />
+
+          <div class="mt-0">
+            <a
+              href="principal.html"
+              class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md"
+              >🏠 Inicio</a
+            >
+            <a
+              href="#"
+              class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+              >📑 Documentos</a
+            >
+            <!-- Sidebar 
           <a
             href="#"
             class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
@@ -131,47 +173,19 @@
           <a
             href="#"
             class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-            >📑 Documentos</a
-          >
+            >📊 Reportes</a
+          >-->
+          </div>
+        </nav>
+
+        <div class="mt-auto">
           <a
             href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-            >📊 Reportes</a
+            class="block p-3 my-6 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            >⚙️ Configuración</a
           >
         </div>
-      </nav>
-
-      <div class="mt-auto">
-        <a
-          href="#"
-          class="block p-3 my-6 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
-          >⚙️ Configuración</a
-        >
-      </div>
-    </aside>
-
-    <!-- Header de la barra de busqueda -->
-    <div class="pt-13 lg:pl-69">
-      <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md">
-        <!-- CENTRO: buscador -->
-        <div class="flex-1 flex justify-center px-4">
-          <div class="w-full left-0 relative">
-            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-              <!-- Lupa PNG -->
-              <img
-                src="img/lupa.png"
-                alt="Buscar"
-                class="w-5 h-5 object-contain"
-              />
-            </span>
-            <input
-              type="search"
-              placeholder="Buscar..."
-              class="w-full border rounded pl-10 pr-2 py-2 text-sm"
-            />
-          </div>
-        </div>
-      </header>
+      </aside>
 
       <!-- Contenido principal -->
       <main class="p-4">
