@@ -50,7 +50,7 @@
             >-->
             <a
               href="index.html"
-              class="text-center block px-3 py-2 text-sm hover:bg-gray-100"
+              class="text-center block px-3 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
               >Cerrar sesión</a
             >
           </div>
@@ -62,30 +62,35 @@
     <div class="pt-13 lg:pl-69">
       <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md">
         <!-- CENTRO: buscador -->
-        <div class="flex-1 flex justify-center px-4">
-          <div class="w-full left-0 relative">
-            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-              <!-- Lupa PNG -->
+        <form class="flex-1 flex justify-center px-4 w-full">
+          <div class="w-full relative">
+            <label
+              for="search-input"
+              class="absolute inset-y-0 left-0 flex items-center pl-3"
+            >
+              <span class="sr-only">Buscar</span>
               <img
                 src="img/lupa.png"
-                alt="Buscar"
+                alt=""
                 class="w-5 h-5 object-contain"
+                aria-hidden="true"
               />
-            </span>
+            </label>
 
             <input
               type="search"
+              id="search-input"
               placeholder="Buscar..."
               class="w-full border rounded pl-10 pr-2 py-2 text-sm"
             />
             <button
               type="submit"
-              class="text-white absolute bg-indigo-700 hover:bg-indigo-900 font-medium rounded-r px-5 text-sm p-2.5 h-full end-0"
+              class="text-white absolute bg-indigo-700 hover:bg-indigo-900 font-medium rounded-r px-5 text-sm p-2.5 h-full end-0 transition-colors duration-200"
             >
               Buscar
             </button>
           </div>
-        </div>
+        </form>
       </header>
 
       <!-- Overlay -->
@@ -102,7 +107,7 @@
         <!-- Boton cerrar solo en telefono -->
         <button
           id="closeBtn"
-          class="flex ml-auto rounded-xs lg:hidden mb-3 text-white text-xl hover:bg-indigo-400"
+          class="flex ml-auto rounded-xs lg:hidden mb-3 text-white text-xl hover:bg-indigo-400 transition-colors duration-200"
         >
           ✖
         </button>
@@ -111,7 +116,7 @@
           <div class="relative">
             <button
               id="bdesplegable"
-              class="flex items-center w-42 p-2 ml-8 mr-8 rounded-md text-white bg-indigo-700 hover:bg-indigo-600 shadow-md"
+              class="flex items-center w-42 p-2 ml-8 mr-8 rounded-md text-white bg-indigo-700 hover:bg-indigo-600 shadow-md transition-colors duration-200"
               type="button"
             >
               <img src="img/wupload.png" class="w-5 h-5 ml-3" />
@@ -123,17 +128,17 @@
             >
               <ul>
                 <li
-                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center"
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center transition-colors duration-200"
                 >
                   <a href="dsaren.html" class="block">Documentos Saren</a>
                 </li>
                 <li
-                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center"
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center transition-colors duration-200"
                 >
                   <a href="#" class="block">Opción 2</a>
                 </li>
                 <li
-                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center"
+                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center transition-colors duration-200"
                 >
                   <a href="#" class="block">Opción 3</a>
                 </li>
@@ -146,33 +151,33 @@
           <div class="mt-0">
             <a
               href="principal.html"
-              class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md"
+              class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md pointer-events-none opacity-50"
               >🏠 Inicio</a
             >
             <a
               href="#"
-              class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+              class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
               >📑 Documentos</a
             >
             <!-- Sidebar 
           <a
             href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
             >👥 Equipo</a
           >
           <a
             href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
             >📂 Proyectos</a
           >
           <a
             href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
             >📅 Calendario</a
           >
           <a
             href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
             >📊 Reportes</a
           >-->
           </div>
@@ -181,7 +186,7 @@
         <div class="mt-auto">
           <a
             href="#"
-            class="block p-3 my-6 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md"
+            class="block p-3 my-6 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
             >⚙️ Configuración</a
           >
         </div>

@@ -22,18 +22,19 @@
           >
           <form>
             <div class="py-4">
-              <span class="mb-2 text-xl font-semibold">Email</span>
+              <label for="correo" class="mb-2 text-xl font-semibold">Email</label>
               <input
                 type="email"
                 class="bg-white w-full p-1.5 border border-black rounded-md placeholder:font-light placeholder:text-black"
                 name="correo"
                 id="correo"
+                autocomplete="email"
                 required
               />
             </div>
 
             <div class="py-2">
-              <span class="mb-2 text-xl font-semibold">Contraseña</span>
+              <label for="pass" class="mb-2 text-xl font-semibold">Contraseña</label>
               <div class="relative">
                 <input
                   type="password"
@@ -41,6 +42,7 @@
                   name="pass"
                   id="pass"
                   class="bg-white w-full p-1.5 border border-black rounded-md placeholder:font-light placeholder:text-black"
+                  autocomplete="current-password"
                 />
                 <button
                   type="button"
@@ -65,7 +67,7 @@
                   id="check"
                   class="mr-0.5 just"
                 />
-                <span>Recuerdame</span>
+                <label for="check" class="cursor-pointer select-none">Recuerdame</label>
               </div>
             </div>
             <button
