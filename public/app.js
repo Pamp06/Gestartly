@@ -78,7 +78,8 @@ function showMessage(msg, isError = false) {
 }
 
 // Escuchar el clic del botón de INICIAR SESIÓN
-loginButton.addEventListener("click", async () => {
+// Función reutilizable que realiza el intento de login
+async function performLogin() {
   // Limpia espacios y convierte a minúsculas
   const email = emailInput.value.trim().toLowerCase().replace(/\s+/g, "");
   const password = passwordInput.value;
@@ -96,31 +97,56 @@ loginButton.addEventListener("click", async () => {
       password
     );
 
-    // OPCIONAL Si el inicio de sesión es exitoso, muestra un mensaje de bienvenida
-    /*showMessage(
-      `¡Bienvenido, Maestro! Sesión iniciada como: ${userCredential.user.email}`
-    );*/
-
-    // Esto redirige al navegador a la página 'generic.html'
+    // Redirige al usuario si el login fue exitoso
     window.location.href = "principal.html";
-  } catch (error) {
-    // Si ocurre un error, lo registramos en la consola para depuración
+  } catch (error) { // Manejo de multiples errores de login
     console.error("Error al iniciar sesión:", error.message);
 
-    // Y mostramos un mensaje amigable al usuario basado en el tipo de error
     if (
       error.code === "auth/user-not-found" ||
       error.code === "auth/wrong-password" ||
-      error.code === "auth/invalid-credential"
+      error.code === "auth/invalid-credential" 
     ) {
       showMessage("Verifica tu correo y contraseña.", true);
     } else if (error.code === "auth/invalid-email") {
-      showMessage("El formato del correo es inválido.", true);
+      showMessage("El formato del correo es inválido.", true); {}
+    } else if (error.code === "auth/too-many-requests") {
+      showMessage("Demasiados intentos fallidos, verifique sus datos.", true);
     } else {
-      // Para otros errores no esperados, muestra el mensaje de Firebase
       showMessage(`Error: ${error.message}`, true);
     }
   }
+}
+
+// Mantener click del botón llamando a la función reutilizable
+loginButton.addEventListener("click", async () => {
+  await performLogin();
+});
+
+// Listener global para detectar la tecla Enter en cualquier parte de la página
+// Lo ignoramos si el foco está en un textarea o en un elemento contentEditable
+document.addEventListener("keydown", async (e) => {
+  if (e.key !== "Enter") return;
+  // Ignorar si se usan modificadores (Ctrl/Alt/Meta) — usuario puede querer otro atajo
+  if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+  const active = document.activeElement;
+  if (!active) return;
+
+  const tag = active.tagName?.toLowerCase();
+
+  // Si el foco está en un textarea, o el elemento es editable, no forzar login
+  if (tag === "textarea" || active.isContentEditable) return;
+
+  // Evitar interferir cuando el foco está en un botón o enlace que debería manejar Enter
+  if (tag === "button" || tag === "a") return;
+
+  // Evitar conflicto si el elemento tiene el atributo data-ignore-enter
+  if (active.hasAttribute && active.hasAttribute("data-ignore-enter")) return;
+
+  // Prevenir comportamiento por defecto (por ejemplo submit del formulario) y ejecutar login
+  e.preventDefault();
+  await performLogin();
 });
 
 togglePassword.addEventListener("click", () => {
