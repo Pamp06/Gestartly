@@ -6,11 +6,12 @@
     <title>Documentos Saren</title>
     <link href="./output.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
+    <script src="theme.js"></script>
   </head>
-  <body class="bg-white">
+  <body class="bg-gray-50 dark:bg-gray-900">
     <!-- Topbar: ahora ocupa todo el ancho arriba -->
     <header
-      class="fixed top-0 left-0 w-full z-50 flex items-center h-13 px-4 bg-white shadow-md"
+      class="fixed top-0 left-0 w-full z-50 flex items-center h-13 px-4 bg-white shadow-md dark:bg-gray-800 dark:border-b dark:border-gray-700"
     >
       <!-- IZQUIERDA: botón móvil -->
       <div class="flex items-center lg:hidden">
@@ -22,6 +23,13 @@
         /></a>
       </div>
 
+      <label class="inline-flex items-center me-5 cursor-pointer">
+      <input type="checkbox" value="" id="theme-toggle" class="sr-only peer">
+      <div class="absolute right-44 w-11 h-6 mt-1 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full 
+      rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white 
+      after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-700"></div>
+      </label>
+
       <!-- DERECHA: notificaciones + usuario -->
       <div class="absolute right-0 flex items-center gap-4 mx-6">
         <div class="relative" id="userMenuWrapper">
@@ -31,7 +39,7 @@
             class="flex items-center gap-2 focus:outline-none select-none"
           >
             <img src="img/perro con chupon.jpg" class="h-8 w-8 rounded-full" />
-            <span class="lg:block text-sm font-semibold">Zulma Pinto</span>
+            <span class="lg:block text-sm font-semibold text-gray-900 dark:text-gray-200">Zulma Pinto</span>
             <!-- Flecha PNG -->
             <img
               id="arrowIcon"
@@ -42,7 +50,7 @@
           </button>
           <div
             id="userDropdown"
-            class="absolute right-0 mt-1 w-38 bg-white rounded-md shadow-lg transition-all duration-200 origin-top scale-95 opacity-0 pointer-events-none"
+            class="absolute right-0 mt-1 w-38 bg-white rounded-md shadow-lg transition-all duration-200 origin-top scale-95 opacity-0 pointer-events-none dark:bg-gray-700"
           >
             <!--  
             <a href="#" class="block px-3 py-2 teaaaxt-sm hover:bg-gray-100"
@@ -50,7 +58,7 @@
             >-->
             <a
               href="index.html"
-              class="text-center block px-3 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+              class="text-center block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200 dark:text-gray-200 dark:hover:bg-gray-600"
               >Cerrar sesión</a
             >
           </div>
@@ -60,7 +68,7 @@
 
     <!-- Header de la barra de busqueda -->
     <div class="pt-13 lg:pl-69">
-      <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md">
+      <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md dark:bg-gray-800">
         <!-- CENTRO: buscador -->
         <div class="flex-1 flex justify-center px-4">
           <div class="w-full left-0 relative">
@@ -75,7 +83,7 @@
             <input
               type="search"
               placeholder="Buscar..."
-              class="w-full border rounded pl-10 pr-2 py-2 text-sm"
+              class="w-full border rounded pl-10 pr-2 py-2 text-sm bg-gray-50 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
             <button
               type="submit"
@@ -145,7 +153,7 @@
           <div class="mt-0">
             <a
               href="principal.html"
-              class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md"
+              class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
               >🏠 Inicio</a
             >
             <a
@@ -193,13 +201,13 @@
             <div>
               <label
                 for="first_name"
-                class="block mb-2 text-sm font-medium text-gray-900"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >Nombre</label
               >
               <input
                 type="text"
                 id="first_name"
-                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="John"
                 required
               />
@@ -207,13 +215,13 @@
             <div>
               <label
                 for="last_name"
-                class="block mb-2 text-sm font-medium text-gray-900"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >Apellido</label
               >
               <input
                 type="text"
                 id="last_name"
-                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Doe"
                 required
               />
@@ -221,13 +229,13 @@
             <div>
               <label
                 for="company"
-                class="block mb-2 text-sm font-medium text-gray-900"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >Empresa</label
               >
               <input
                 type="text"
                 id="company"
-                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Flowbite"
                 required
               />
@@ -235,13 +243,13 @@
             <div>
               <label
                 for="phone"
-                class="block mb-2 text-sm font-medium text-gray-900"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >Número de teléfono</label
               >
               <input
                 type="tel"
                 id="phone"
-                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="123-45-678"
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 required
@@ -250,13 +258,13 @@
             <div>
               <label
                 for="website"
-                class="block mb-2 text-sm font-medium text-gray-900"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >URL del sitio web</label
               >
               <input
                 type="url"
                 id="website"
-                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="flowbite.com"
                 required
               />
@@ -264,13 +272,13 @@
             <div>
               <label
                 for="visitors"
-                class="block mb-2 text-sm font-medium text-gray-900"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >Visitantes únicos (por mes)</label
               >
               <input
                 type="number"
                 id="visitors"
-                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
                 required
               />
@@ -279,13 +287,13 @@
           <div class="mb-6">
             <label
               for="email"
-              class="block mb-2 text-sm font-medium text-gray-900"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >Correo electrónico</label
             >
             <input
               type="email"
               id="email"
-              class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="john.doe@company.com"
               required
             />
@@ -293,13 +301,13 @@
           <div class="mb-6">
             <label
               for="password"
-              class="block mb-2 text-sm font-medium text-gray-900"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >Contraseña</label
             >
             <input
               type="password"
               id="password"
-              class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="•••••••••"
               required
             />
@@ -307,13 +315,13 @@
           <div class="mb-6">
             <label
               for="confirm_password"
-              class="block mb-2 text-sm font-medium text-gray-900"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >Confirmar contraseña</label
             >
             <input
               type="password"
               id="confirm_password"
-              class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="•••••••••"
               required
             />
@@ -324,23 +332,23 @@
                 id="remember"
                 type="checkbox"
                 value=""
-                class="w-4 h-4 border border-gray-400 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300"
+                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
                 required
               />
             </div>
-            <label for="remember" class="ms-2 text-sm font-medium text-gray-900"
+            <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >Acepto los
-              <a href="#" class="text-blue-600 hover:underline"
+              <a href="#" class="text-blue-600 hover:underline dark:text-blue-500"
                 >términos y condiciones</a
               >.</label
             >
           </div>
 
-          <label class="block mb-2 text-sm font-medium text-gray-900"
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Subir un Archivo</label
           >
           <input
-            class="file:py-2.5 file:px-6 file:rounded-l-lg file:text-sm file:bg-indigo-700 file:text-white hover:file:bg-indigo-900 w-full border border-gray-400 rounded-lg bg-gray-50 cursor-pointer file:transition-colors file:duration-200"
+            class="file:py-2.5 file:px-6 file:rounded-l-lg file:text-sm file:bg-indigo-700 file:text-white hover:file:bg-indigo-900 w-full border border-gray-300 rounded-lg bg-gray-50 cursor-pointer file:transition-colors file:duration-200 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400"
             id="file_input"
             type="file"
           />

@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel</title>
-    <link href="./output.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="img/favicon.png" />
+  <script src="theme.js"></script>
+  <link href="./output.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
   </head>
-  <body class="bg-white">
+  <body class="bg-gray-50 dark:bg-gray-900">
     <!-- Topbar: ahora ocupa todo el ancho arriba -->
     <header
-      class="fixed top-0 left-0 w-full z-50 flex items-center h-13 px-4 bg-white shadow-md"
+      class="fixed top-0 left-0 w-full z-50 flex items-center h-13 px-4 bg-white shadow-md dark:bg-gray-800 dark:border-b dark:border-gray-700"
     >
       <!-- IZQUIERDA: botón móvil -->
       <div class="flex items-center lg:hidden">
@@ -22,6 +23,14 @@
         /></a>
       </div>
 
+      <!-- Contenedor para el interruptor de tema -->
+      <div class="absolute right-44">
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" value="" id="theme-toggle" class="sr-only peer" />
+          <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-700"></div>
+        </label>
+      </div>
+
       <!-- DERECHA: notificaciones + usuario -->
       <div class="absolute right-0 flex items-center gap-4 mx-6">
         <div class="relative" id="userMenuWrapper">
@@ -31,7 +40,7 @@
             class="flex items-center gap-2 focus:outline-none select-none"
           >
             <img src="img/perro con chupon.jpg" class="h-8 w-8 rounded-full" />
-            <span class="lg:block text-sm font-semibold">Zulma Pinto</span>
+            <span class="lg:block text-sm font-semibold text-gray-900 dark:text-gray-200">Zulma Pinto</span>
             <!-- Flecha PNG -->
             <img
               id="arrowIcon"
@@ -42,7 +51,7 @@
           </button>
           <div
             id="userDropdown"
-            class="absolute right-0 mt-1 w-38 bg-white rounded-md shadow-lg transition-all duration-200 origin-top scale-95 opacity-0 pointer-events-none"
+            class="absolute right-0 mt-1 w-38 bg-white rounded-md shadow-lg transition-all duration-200 origin-top scale-95 opacity-0 pointer-events-none dark:bg-gray-700"
           >
             <!--  
             <a href="#" class="block px-3 py-2 teaaaxt-sm hover:bg-gray-100"
@@ -50,7 +59,7 @@
             >-->
             <a
               href="index.html"
-              class="text-center block px-3 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+              class="text-center block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200 dark:text-gray-200 dark:hover:bg-gray-600"
               >Cerrar sesión</a
             >
           </div>
@@ -60,7 +69,7 @@
 
     <!-- Header de la barra de busqueda -->
     <div class="pt-13 lg:pl-69">
-      <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md">
+      <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md dark:bg-gray-800">
         <!-- CENTRO: buscador -->
         <form class="flex-1 flex justify-center px-4 w-full">
           <div class="w-full relative">
@@ -81,7 +90,7 @@
               type="search"
               id="search-input"
               placeholder="Buscar..."
-              class="w-full border rounded pl-10 pr-2 py-2 text-sm"
+              class="w-full border rounded pl-10 pr-2 py-2 text-sm bg-gray-50 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
             <button
               type="submit"
@@ -194,8 +203,8 @@
 
       <!-- Contenido principal -->
       <main class="p-4">
-        <h1 class="text-xl font-bold">Bienvenido 👋</h1>
-        <p class="text-gray-600">Aquí va tu contenido principal.</p>
+        <h1 class="text-xl font-bold text-gray-900 dark:text-white">Bienvenido 👋</h1>
+        <p class="text-gray-600 dark:text-gray-400">Aquí va tu contenido principal.</p>
       </main>
     </div>
 
