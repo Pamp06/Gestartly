@@ -1,0 +1,54 @@
+type User @table {
+  displayName: String!
+  createdAt: Timestamp!
+  email: String
+  photoUrl: String
+}
+
+type Perfume @table {
+  name: String!
+  brand: String!
+  createdAt: Timestamp!
+  description: String
+  perfumer: String
+  yearLaunched: Int
+  topNotes: [String]
+  middleNotes: [String]
+  baseNotes: [String]
+}
+
+type UserPerfume @table {
+  user: User!
+  perfume: Perfume!
+  status: String!
+  createdAt: Timestamp!
+  purchaseDate: Date
+  bottleSize: String
+  quantity: Int
+}
+
+type Review @table {
+  user: User!
+  perfume: Perfume!
+  rating: Int!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+  text: String
+  isPublic: Boolean
+}
+
+type Wishlist @table {
+  user: User!
+  name: String!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+  description: String
+  isPublic: Boolean
+}
+
+type WishlistPerfume @table {
+  wishlist: Wishlist!
+  perfume: Perfume!
+  addedAt: Timestamp!
+  note: String
+}
