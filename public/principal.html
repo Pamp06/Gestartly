@@ -4,210 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel</title>
-  <script src="theme.js"></script>
   <link href="./output.css" rel="stylesheet" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
   </head>
-  <body class="bg-gray-50 dark:bg-gray-900">
-    <!-- Topbar: ahora ocupa todo el ancho arriba -->
-    <header
-      class="fixed top-0 left-0 w-full z-50 flex items-center h-13 px-4 bg-white shadow-md dark:bg-gray-800 dark:border-b dark:border-gray-700"
-    >
-      <!-- IZQUIERDA: botón móvil -->
-      <div class="flex items-center lg:hidden">
-        <button id="menuBtn" class="p-2 text-gray-700">☰</button>
-      </div>
-      <div class="flex items-center h-16">
-        <a href="principal.html">
-          <img src="img/logo2.png" class="h-6 lg:h-9 mx-2" alt="Logo"
-        /></a>
-      </div>
+  <body>
+    <!-- Marcador de posición para el Topbar -->
+    <div data-include="topbar-component.html"></div>
 
-      <!-- Contenedor para el interruptor de tema 
-      <div class="absolute right-44">
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input type="checkbox" value="" id="theme-toggle" class="sr-only peer" />
-          <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-700"></div>
-        </label>
-      </div> -->
-
-      <!-- DERECHA: notificaciones + usuario -->
-      <div class="absolute right-0 flex items-center gap-4 mx-6">
-        <div class="relative" id="userMenuWrapper">
-          <!-- Flecha PNG en el menú de usuario -->
-          <button
-            id="userMenuBtn"
-            class="flex items-center gap-2 focus:outline-none select-none"
-          >
-            <img src="img/perro con chupon.jpg" class="h-8 w-8 rounded-full" />
-            <span class="lg:block text-sm font-semibold text-gray-900 dark:text-gray-200">Zulma Pinto</span>
-            <!-- Flecha PNG -->
-            <img
-              id="arrowIcon"
-              src="img/flecha.png"
-              alt="Abrir menú"
-              class="w-4 h-4 ml-1 transition-transform duration-200"
-            />
-          </button>
-          <div
-            id="userDropdown"
-            class="absolute right-0 mt-1 w-38 bg-white rounded-md shadow-lg transition-all duration-200 origin-top scale-95 opacity-0 pointer-events-none dark:bg-gray-700"
-          >
-            <!--  
-            <a href="#" class="block px-3 py-2 teaaaxt-sm hover:bg-gray-100"
-              >Perfil</a
-            >-->
-            <a
-              href="index.html"
-              class="text-center block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200 dark:text-gray-200 dark:hover:bg-gray-600"
-              >Cerrar sesión</a
-            >
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Header de la barra de busqueda -->
-    <div class="pt-13 lg:pl-69">
-      <header class="top-0 flex px-2 items-center h-14 bg-white shadow-md dark:bg-gray-800">
-        <!-- CENTRO: buscador -->
-        <form class="flex-1 flex justify-center px-4 w-full">
-          <div class="w-full relative">
-            <label
-              for="search-input"
-              class="absolute inset-y-0 left-0 flex items-center pl-3"
-            >
-              <span class="sr-only">Buscar</span>
-              <img
-                src="img/lupa.png"
-                alt=""
-                class="w-5 h-5 object-contain"
-                aria-hidden="true"
-              />
-            </label>
-
-            <input
-              type="search"
-              id="search-input"
-              placeholder="Buscar..."
-              class="w-full border rounded pl-10 pr-2 py-2 text-sm bg-gray-50 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            />
-            <button
-              type="submit"
-              class="text-white absolute bg-indigo-700 hover:bg-indigo-900 font-medium rounded-r px-5 text-sm p-2.5 h-full end-0 transition-colors duration-200"
-            >
-              Buscar
-            </button>
-          </div>
-        </form>
-      </header>
-
-      <!-- Overlay -->
+    <!-- Contenedor principal ajustado para el nuevo topbar -->
+    <div class="pt-27 lg:pl-69">
+      <!-- Overlay para el sidebar en móvil -->
       <div
         id="overlay"
         class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
       ></div>
-
-      <!-- Sidebar -->
-      <aside
-        id="sidebar"
-        class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-900 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
-      >
-        <!-- Boton cerrar solo en telefono -->
-        <button
-          id="closeBtn"
-          class="flex ml-auto rounded-xs lg:hidden mb-3 text-white text-xl hover:bg-indigo-400 transition-colors duration-200"
-        >
-          ✖
-        </button>
-
-        <nav id="bplegable" class="flex-1 mt-1 space-y-2.5">
-          <div class="relative">
-            <button
-              id="bdesplegable"
-              class="flex items-center w-42 p-2 ml-8 mr-8 rounded-md text-white bg-indigo-700 hover:bg-indigo-600 shadow-md transition-colors duration-200"
-              type="button"
-            >
-              <img src="img/wupload.png" class="w-5 h-5 ml-3" />
-              <span class="ml-1.5">Nuevo archivo</span>
-            </button>
-            <div
-              id="mdesplegable"
-              class="absolute right-8 z-10 mt-1 overflow-hidden bg-indigo-700 rounded-md shadow-lg whitespace-nowrap origin-top-right transition-all duration-300 ease-out opacity-0 scale-y-0 pointer-events-none"
-            >
-              <ul>
-                <li
-                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center transition-colors duration-200"
-                >
-                  <a href="dsaren.html" class="block">Documentos Saren</a>
-                </li>
-                <li
-                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center transition-colors duration-200"
-                >
-                  <a href="#" class="block">Opción 2</a>
-                </li>
-                <li
-                  class="w-42 py-2 text-white hover:bg-indigo-500 text-center transition-colors duration-200"
-                >
-                  <a href="#" class="block">Opción 3</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <hr class="my-6 -mx-6 border-t border-indigo-200" />
-
-          <div class="mt-0">
-            <a
-              href="principal.html"
-              class="block p-3 -mx-6 text-sm font-semibold bg-indigo-700 text-white shadow-md pointer-events-none opacity-50"
-              >🏠 Inicio</a
-            >
-            <a
-              href="#"
-              class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
-              >📑 Documentos</a
-            >
-            <!-- Sidebar 
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
-            >👥 Equipo</a
-          >
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
-            >📂 Proyectos</a
-          >
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
-            >📅 Calendario</a
-          >
-          <a
-            href="#"
-            class="block p-3 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
-            >📊 Reportes</a
-          >-->
-          </div>
-        </nav>
-
-        <div class="mt-auto">
-          <a
-            href="#"
-            class="block p-3 my-6 -mx-6 text-sm font-semibold text-indigo-200 hover:bg-indigo-700 hover:text-white hover:shadow-md transition-all duration-200"
-            >⚙️ Configuración</a
-          >
-        </div>
-      </aside>
+      
+      <!-- Marcador de posición para la barra lateral -->
+      <div data-include="sidebar-component.html"></div>
 
       <!-- Contenido principal -->
       <main class="p-4">
-        <h1 class="text-xl font-bold text-gray-900 dark:text-white">Bienvenido 👋</h1>
-        <p class="text-gray-600 dark:text-gray-400">Aquí va tu contenido principal.</p>
+        <h1 class="text-xl font-bold text-gray-900">Bienvenido 👋</h1>
+        <p class="text-gray-600">Aquí va tu contenido principal.</p>
       </main>
     </div>
 
+    <script src="component-loader.js"></script>
     <script src="principal.js"></script>
   </body>
 </html>

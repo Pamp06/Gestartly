@@ -1,102 +1,131 @@
-const sidebar = document.getElementById("sidebar");
-let overlay = document.getElementById("overlay");
-const menuBtn = document.getElementById("menuBtn");
-const closeBtn = document.getElementById("closeBtn");
-const userMenuBtn = document.getElementById("userMenuBtn");
-const userDropdown = document.getElementById("userDropdown");
-const arrowIcon = document.getElementById("arrowIcon");
-const userMenuWrapper = document.getElementById("userMenuWrapper");
+/**
+ * Inicializa los listeners de eventos para los elementos del Topbar.
+ * Esto incluye el menú de usuario y el botón del menú móvil.
+ */
+function initializeTopbarLogic() {
+  const userMenuBtn = document.getElementById("userMenuBtn");
+  const userDropdown = document.getElementById("userDropdown");
+  const arrowIcon = document.getElementById("arrowIcon");
+  const userMenuWrapper = document.getElementById("userMenuWrapper");
+  const menuBtn = document.getElementById("menuBtn");
 
-let menuOpen = false;
+  // --- Lógica del Menú de Usuario ---
+  if (userMenuBtn && userDropdown && arrowIcon && userMenuWrapper) {
+    let menuOpen = false;
 
-function openSidebar() {
-  sidebar.classList.remove("-translate-x-full");
-  overlay.classList.remove("hidden");
-}
+    const openUserMenu = () => {
+      userDropdown.classList.remove("scale-95", "opacity-0", "pointer-events-none");
+      userDropdown.classList.add("scale-100", "opacity-100", "pointer-events-auto");
+      arrowIcon.classList.add("rotate-180");
+      menuOpen = true;
+    };
 
-function closeSidebar() {
-  sidebar.classList.add("-translate-x-full");
-  overlay.classList.add("hidden");
-}
+    const closeUserMenu = () => {
+      userDropdown.classList.add("scale-95", "opacity-0", "pointer-events-none");
+      userDropdown.classList.remove("scale-100", "opacity-100", "pointer-events-auto");
+      arrowIcon.classList.remove("rotate-180");
+      menuOpen = false;
+    };
 
-function openUserMenu() {
-  userDropdown.classList.remove("scale-95", "opacity-0", "pointer-events-none");
-  userDropdown.classList.add("scale-100", "opacity-100", "pointer-events-auto");
-  arrowIcon.classList.add("rotate-180");
-  menuOpen = true;
-}
-
-function closeUserMenu() {
-  userDropdown.classList.add("scale-95", "opacity-0", "pointer-events-none");
-  userDropdown.classList.remove(
-    "scale-100",
-    "opacity-100",
-    "pointer-events-auto"
-  );
-  arrowIcon.classList.remove("rotate-180");
-  menuOpen = false;
-}
-
-// Sidebar móvil
-if (menuBtn && sidebar && overlay) {
-  menuBtn.addEventListener("click", openSidebar);
-  overlay.addEventListener("click", closeSidebar);
-}
-if (closeBtn && sidebar && overlay) {
-  closeBtn.addEventListener("click", closeSidebar);
-}
-
-// Menú usuario
-if (userMenuBtn && userDropdown && arrowIcon && userMenuWrapper) {
-  userMenuBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    if (menuOpen) {
-      closeUserMenu();
-    } else {
-      openUserMenu();
-    }
-  });
-
-  document.addEventListener("click", (e) => {
-    if (menuOpen && !userMenuWrapper.contains(e.target)) {
-      closeUserMenu();
-    }
-  });
-}
-
-// Menu desplegable Nuevo archivo
-
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("bdesplegable");
-  const menu = document.getElementById("mdesplegable");
-
-  if (btn && menu) {
-    btn.addEventListener("click", function (e) {
+    userMenuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      const isOpen = menu.classList.contains("opacity-100");
-      if (isOpen) {
-        menu.classList.remove(
-          "opacity-100",
-          "scale-y-100",
-          "pointer-events-auto"
-        );
-        menu.classList.add("opacity-0", "scale-y-0", "pointer-events-none");
+      if (menuOpen) {
+        closeUserMenu();
       } else {
-        menu.classList.add("opacity-100", "scale-y-100", "pointer-events-auto");
-        menu.classList.remove("opacity-0", "scale-y-0", "pointer-events-none");
+        openUserMenu();
       }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (menuOpen && !userMenuWrapper.contains(e.target)) {
+        closeUserMenu();
+      }
+    });
+  }
+
+  // La lógica del botón de menú móvil también depende del sidebar,
+  // así que la movemos a la inicialización del sidebar.
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  // --- Lógica del Sidebar móvil ---
+  if (sidebar && overlay && menuBtn && closeBtn) {
+    const openSidebar = () => {
+      sidebar.classList.remove("-translate-x-full");
+      overlay.classList.remove("hidden");
+    };
+
+    const closeSidebar = () => {
+      sidebar.classList.add("-translate-x-full");
+      overlay.classList.add("hidden");
+    };
+
+    menuBtn.addEventListener("click", openSidebar);
+    overlay.addEventListener("click", closeSidebar);
+    closeBtn.addEventListener("click", closeSidebar);
+  }
+}
+
+/**
+ * Inicializa los listeners de eventos para los elementos del Sidebar.
+ * Esto incluye el botón de cerrar y el menú desplegable "Nuevo archivo".
+ */
+function initializeSidebarLogic() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  const closeBtn = document.getElementById("closeBtn");
+  const bdesplegable = document.getElementById("bdesplegable");
+  const mdesplegable = document.getElementById("mdesplegable");
+  const menuBtn = document.getElementById("menuBtn"); // Necesario para la lógica de abrir/cerrar
+
+  // --- Lógica del Menú desplegable "Nuevo archivo" ---
+  if (bdesplegable && mdesplegable) {
+    bdesplegable.addEventListener("click", function (e) {
+      e.stopPropagation();
+      mdesplegable.classList.toggle("opacity-0");
+      mdesplegable.classList.toggle("scale-y-0");
+      mdesplegable.classList.toggle("pointer-events-none");
+      mdesplegable.classList.toggle("opacity-100");
+      mdesplegable.classList.toggle("scale-y-100");
+      mdesplegable.classList.toggle("pointer-events-auto");
     });
 
     // Cerrar al hacer clic fuera
     document.addEventListener("click", function (e) {
-      if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.remove(
-          "opacity-100",
-          "scale-y-100",
-          "pointer-events-auto"
-        );
-        menu.classList.add("opacity-0", "scale-y-0", "pointer-events-none");
+      const isOpen = mdesplegable.classList.contains("opacity-100");
+      if (isOpen && !mdesplegable.contains(e.target) && !bdesplegable.contains(e.target)) {
+        mdesplegable.classList.add("opacity-0", "scale-y-0", "pointer-events-none");
+        mdesplegable.classList.remove("opacity-100", "scale-y-100", "pointer-events-auto");
       }
     });
+  }
+
+  // --- Lógica del Sidebar móvil (reubicada para mayor claridad) ---
+  if (sidebar && overlay && menuBtn && closeBtn) {
+    const openSidebar = () => {
+      sidebar.classList.remove("-translate-x-full");
+      overlay.classList.remove("hidden");
+    };
+
+    const closeSidebar = () => {
+      sidebar.classList.add("-translate-x-full");
+      overlay.classList.add("hidden");
+    };
+
+    // Aseguramos que los listeners no se dupliquen
+    if (!menuBtn.dataset.listenerAttached) {
+      menuBtn.addEventListener("click", openSidebar);
+      menuBtn.dataset.listenerAttached = "true";
+    }
+    closeBtn.addEventListener("click", closeSidebar);
+    overlay.addEventListener("click", closeSidebar);
+  }
+}
+
+// Escuchamos el evento personalizado que dispara `component-loader.js`
+document.addEventListener("componentLoaded", (event) => {
+  if (event.detail.file === "topbar-component.html") {
+    initializeTopbarLogic();
+  } else if (event.detail.file === "sidebar-component.html") {
+    initializeSidebarLogic();
   }
 });
