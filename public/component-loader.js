@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
           element.outerHTML = html;
           // Después de cargar el componente, podemos ejecutar scripts específicos si es necesario
           // Por ejemplo, para reinicializar los listeners de eventos del sidebar.
-          // Esto es importante porque el script principal.js se ejecuta antes de que este contenido exista.
+          //! Esto es importante porque el script principal.js se ejecuta antes de que este contenido exista.
           const event = new CustomEvent("componentLoaded", {
             detail: { file: file },
           });

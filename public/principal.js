@@ -19,7 +19,7 @@ function initializeTopbarLogic() {
       arrowIcon.classList.add("rotate-180");
       menuOpen = true;
     };
-
+ 
     const closeUserMenu = () => {
       userDropdown.classList.add("scale-95", "opacity-0", "pointer-events-none");
       userDropdown.classList.remove("scale-100", "opacity-100", "pointer-events-auto");
