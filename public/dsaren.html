@@ -8,76 +8,99 @@
     <link rel="icon" type="image/png" href="img/favicon.png" />
   </head>
   <body class="">
-    <!-- Topbar: ahora ocupa todo el ancho arriba -->
     <!-- Marcador de posición para el Topbar -->
     <div data-include="topbar-component.html"></div>
-
-    <!-- Contenedor principal ajustado para el nuevo topbar -->
-    <div class="pt-27 lg:pl-69">
-      <!-- Overlay -->
-      <div
-        id="overlay"
-        class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
-      ></div>
 
       <!-- Marcador de posición para la barra lateral -->
       <div data-include="sidebar-component.html"></div>
 
       <!-- Contenido principal -->
-      <main class="p-6 mb-10">
+      <main class="p-6 mb-10 lg:ml-70">
         <form>
+          <H1 class="text-center text-3xl mb-10 text-indigo-800">Documentos Saren</H1>
           <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label
-                for="first_name"
                 class="block mb-2 text-sm font-medium text-gray-900"
-                >Nombre</label
+                >Tipo de Tramite *</label
               >
-              <input
-                type="text"
-                id="first_name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="John"
-                required
-              />
+              <select name="TipoTramite" id="TTramite" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required>
+                <option value="">Selecciones una Opción...</option>
+                <option value="c-certificadas">Copias Certificadas</option>
+                <option value="legalizaciones">Legalizaciones</option>
+                <option value="protocolizacion">Protocolización</option>
+                <option value="n-margen">Notas al Margen</option>
+              </select>
             </div>
             <div>
               <label
-                for="last_name"
                 class="block mb-2 text-sm font-medium text-gray-900"
-                >Apellido</label
+                >Estado *</label
               >
-              <input
-                type="text"
-                id="last_name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Doe"
-                required
-              />
+              <select name="EstadoDocumento" id="EdoDocumento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required>
+                <option value="">Selecciones una Opción...</option>
+                <option value="amazonas">Amazonas</option>
+                <option value="anzoategui">Anzoátegui</option>
+                <option value="apure">Apure</option>
+                <option value="aragua">Aragua</option>
+                <option value="barinas">Barinas</option>
+                <option value="bolivar">Bolívar</option>
+                <option value="carabobo">Carabobo</option>
+                <option value="cojedes">Cojedes</option>
+                <option value="delta-amacuro">Delta Amacuro</option>
+                <option value="distrito-capital">Distrito Capital</option>
+                <option value="falcon">Falcón</option>
+                <option value="guarico">Guárico</option>
+                <option value="la-guaira">La Guaira</option>
+                <option value="lara">Lara</option>
+                <option value="merida">Mérida</option>
+                <option value="miranda">Miranda</option>
+                <option value="monagas">Monagas</option>
+                <option value="nueva-esparta">Nueva Esparta</option>
+                <option value="portuguesa">Portuguesa</option>
+                <option value="sucre">Sucre</option>
+                <option value="tachira">Táchira</option>
+                <option value="territorio-miranda">Territorio Insular Francisco de Miranda</option>
+                <option value="trujillo">Trujillo</option>
+                <option value="yaracuy">Yaracuy</option>
+                <option value="zulia">Zulia</option>
+              </select>
             </div>
             <div>
               <label
-                for="company"
                 class="block mb-2 text-sm font-medium text-gray-900"
-                >Empresa</label
+                >Tipo de Documento *</label
               >
-              <input
-                type="text"
-                id="company"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Flowbite"
-                required
-              />
+              <select name="TipoDocumento" id="TDocumento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required>
+                <option value="">Selecciones una Opción...</option>
+                <option value=""> Null</option>
+              </select>
             </div>
             <div>
               <label
-                for="phone"
                 class="block mb-2 text-sm font-medium text-gray-900"
-                >Número de teléfono</label
-              >
+                >Comentarios <b><i>(Opcional)</i></b>
+                </label>
+              <input
+                type="Campo_Opcional"
+                id="COpcional"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              />
+            </div>
+            
+            <!-- CAMPOS OPCIONALES COMENTADOS
+            <div>
+              <label
+                for="tel"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Numero de Telefono
+                </label>
               <input
                 type="tel"
-                id="phone"
+                id="Telefono"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="123-45-678"
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
@@ -170,29 +193,35 @@
               <a href="#" class="text-blue-600 hover:underline"
                 >términos y condiciones</a
               >.</label
-            >
+            >-->
           </div>
 
           <label class="block mb-2 text-sm font-medium text-gray-900"
-            >Subir un Archivo</label
+            >Subir un Archivo <b><i>(Seleccione o Arrastre un Documento)</i></b></label
           >
           <input
             class="file:py-2.5 file:px-6 file:rounded-l-lg file:text-sm file:bg-indigo-700 file:text-white hover:file:bg-indigo-900 w-full border border-gray-300 rounded-lg bg-gray-50 cursor-pointer file:transition-colors file:duration-200"
             id="file_input"
             type="file"
+            required
           />
 
           <hr class="my-6 border-t border-gray-400" />
 
           <button
             type="submit"
-            class="text-white absolute bg-indigo-700 hover:bg-indigo-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-auto transition-colors duration-200"
+            class="text-white absolute bg-indigo-700 hover:bg-indigo-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center mb-auto transition-colors duration-200"
           >
             Enviar
           </button>
         </form>
+        <br>
+        <br>
+        <br>
+        <p class="text-red-600 block mb-6 text-center hover:underline">Todos los campos marcados con <b>(*)</b> son obligatorios</p>
       </main>
     </div>
+    
 
     <script src="component-loader.js"></script>
     <script src="principal.js"></script>

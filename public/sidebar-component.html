@@ -1,7 +1,13 @@
-<!-- Sidebar -->
+ <!-- Contenedor del Sidebar -->
+    <div class="pt-27 lg:pl-69">
+      <!-- Overlay para el sidebar en móvil -->
+      <div
+        id="overlay"
+        class="fixed top-13 inset-x-0 bottom-0 bg-black/50 z-40 hidden lg:hidden"
+      ></div>
 <aside
   id="sidebar"
-  class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-900 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex"
+  class="fixed top-13 inset-y-0 left-0 z-50 w-70 bg-indigo-900 p-6 flex-col transform -translate-x-full transition-transform lg:translate-x-0 lg:flex">
   <!-- Boton cerrar solo en telefono -->
   <button
     id="closeBtn"
