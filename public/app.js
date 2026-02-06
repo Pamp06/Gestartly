@@ -155,3 +155,4 @@ togglePassword.addEventListener("click", () => {
   eyeIcon.src = isPassword ? "img/openeye.png" : "img/closeeye.png";
   eyeIcon.alt = isPassword ? "Ocultar contraseña" : "Mostrar contraseña";
 });
+
