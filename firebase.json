@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "gestartlyweb",
     "public": "public",
     "ignore": [
       "firebase.json",

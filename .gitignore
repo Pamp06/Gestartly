@@ -7,6 +7,10 @@ yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
 
+# Claves y API del Proyecto
+public/credenciales.js
+.env
+
 # Firebase cache
 .firebase/
 

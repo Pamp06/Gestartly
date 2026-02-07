@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -34,6 +33,7 @@
               />
             </div>
 
+            <!-- Label de Contraseña -->
             <div class="py-2">
               <label for="pass" class="mb-2 text-xl font-semibold">Contraseña</label>
               <div class="relative">
@@ -45,6 +45,8 @@
                   class="bg-white w-full p-1.5 border border-black rounded-md placeholder:font-light placeholder:text-black"
                   autocomplete="current-password"
                 />
+
+                <!-- Boton para mostrar contraseña -->
                 <button
                   type="button"
                   id="togglePassword"
@@ -60,18 +62,27 @@
                 </button>
               </div>
             </div>
-            <div class="flex justify-between w-full py-4">
-              <div class="flex justify-left w-full">
-                <input
-                  type="checkbox"
-                  name="check"
-                  id="check"
-                  class="mr-0.5 just"
-                />
-                <label for="check" class="cursor-pointer select-none">Recuerdame</label>
 
+            <!-- Casilla de CheckBox-->
+            <div class="flex justify-between w-full py-4">
+            <div class="flex items-center justify-left w-full gap-3">
+                <label class="relative block h-4 min-w-4 cursor-pointer overflow-hidden rounded-sm ring-2 ring-slate-500">
+                  <input 
+                    type="checkbox" 
+                    name="check" 
+                    id="check" 
+                    class="peer absolute -left-10 opacity-0"
+                  />
+                  <div class="absolute -left-[52px] -top-[52px] h-[60px] w-[60px] rotate-45 bg-slate-300 transition-all duration-300 ease-in-out peer-checked:-left-2.5 peer-checked:-top-2.5 peer-checked:bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))]">
+                  </div>
+                </label>
+                <label for="check" class="cursor-pointer select-none text-slate-900 font-medium">
+                  Recuérdame
+                </label>
               </div>
             </div>
+            
+            <!-- Boton de login viejo
             <button
               id="btn-login"
               name="btn-login"
@@ -80,12 +91,23 @@
             >
               Ingresar
             </button>
-            
+            -->
+
+            <button id="btn-login"
+            name="btn-login"
+            type="button" 
+            class="group relative mt-6 w-full rounded-b-full px-5 py-3 text-[1.25em] font-medium text-white transition-all duration-200 active:scale-[0.98]">
+              <div class="absolute inset-0 rounded-[10px] bg-linear-to-br from-[#0ce39a] via-[#69007f] to-[#c145e7] opacity-0 blur-[20px] transition-opacity duration-500 group-hover:opacity-100"></div>
+              <div class="absolute inset-0 rounded-[10px] bg-linear-to-br from-[#0ce39a] via-[#69007f] to-[#c145e7]"></div>
+              <div class="absolute inset-px rounded-[9px] bg-[#272727] transition-all duration-500 group-hover:opacity-70"></div>
+              <div class="absolute inset-px rounded-[9px] bg-linear-to-b from-transparent to-black/20 opacity-0 transition-opacity duration-200 active:opacity-100"></div>
+              <span class="relative z-10 block transform transition-transform duration-200 active:scale-95">Ingresar</span>
+            </button>
 
             <!-- Elemento para mostrar mensajes al usuario -->
             <p
               id="message"
-              class="text-center text-sm min-h-[24px] opacity-0 translate-y-4 transition-all duration-500 ease-in-out"
+              class="text-center text-sm min-h-6 opacity-0 translate-y-4 transition-all duration-500 ease-in-out"
             ></p>
             <!-- Boton de login con google desactivado por el momento -->
             <!--<button

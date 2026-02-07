@@ -6,16 +6,8 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// Datos de configuracion del Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyAkkRZ0jku2cav6MVcNJjJ0_dtufg6nk2Y",
-  authDomain: "documentosweb1-5df51.firebaseapp.com",
-  projectId: "documentosweb1-5df51",
-  storageBucket: "documentosweb1-5df51.firebasestorage.app",
-  messagingSenderId: "302397078724",
-  appId: "1:302397078724:web:7777ecdd311c2ad4049d91",
-  measurementId: "G-KM6NCNXG9P",
-};
+// Credenciales del Proyecto
+import { firebaseConfig } from "./credenciales.js";
 
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
@@ -155,4 +147,3 @@ togglePassword.addEventListener("click", () => {
   eyeIcon.src = isPassword ? "img/openeye.png" : "img/closeeye.png";
   eyeIcon.alt = isPassword ? "Ocultar contraseña" : "Mostrar contraseña";
 });
-
