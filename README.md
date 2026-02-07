@@ -6,7 +6,7 @@
 
 **Gestartly** es un proyecto web desarrollado con **JavaScript moderno**, **Firebase** y **Tailwind CSS**. Enfocado en la gestión y análisis de datos de manera eficiente evitando la dependencia pura de documentos físicos.
 
-![Login](https://github.com/user-attachments/assets/54b74adf-629a-4df4-94af-4cd0a654de2d)
+![Login](https://github.com/user-attachments/assets/e8aaca73-3fb2-4372-b009-a8233e20d336)
 
 [Enlace a la página](https://documentosweb1-5df51.firebaseapp.com)
 
