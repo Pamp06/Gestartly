@@ -1,28 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const loadComponent = (element) => {
+  const loadComponent = async (element) => {
     const file = element.getAttribute("data-include");
-    if (file) {
-      fetch(file)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`No se pudo cargar el componente: ${file}`);
+    if (!file) return;
+
+    const cacheKey = `gestartly_component_${file}`;
+    const cachedContent = localStorage.getItem(cacheKey);
+
+    // Función auxiliar para notificar que el componente se cargó
+    const dispatchLoaded = () => {
+      const event = new CustomEvent("componentLoaded", {
+        detail: { file: file },
+      });
+      document.dispatchEvent(event);
+    };
+
+    //* ESTRATEGIA: Cache-First (Guarda en Cache el Header y el Sidebar, cuando se recarguen nuevamente la proxima
+    //* vez buscara si estan guardados ambos componentes para no recargarlos sino tomarlos de la cache directamente)
+
+    if (cachedContent) {
+      // 1. Si hay cache, renderizar INMEDIATAMENTE (elimina el parpadeo)
+      element.outerHTML = cachedContent;
+      dispatchLoaded();
+
+      // 2. Revalidar en segundo plano para actualizar el caché si el archivo cambió
+      try {
+        const response = await fetch(file);
+        if (response.ok) {
+          const html = await response.text();
+          if (html !== cachedContent) {
+            localStorage.setItem(cacheKey, html);
+            console.log(`Caché actualizado para ${file}. Se verá en la próxima recarga.`);
           }
-          return response.text();
-        })
-        .then((html) => {
-          element.outerHTML = html;
-          // Después de cargar el componente, podemos ejecutar scripts específicos si es necesario
-          // Por ejemplo, para reinicializar los listeners de eventos del sidebar.
-          //! Esto es importante porque el script principal.js se ejecuta antes de que este contenido exista.
-          const event = new CustomEvent("componentLoaded", {
-            detail: { file: file },
-          });
-          document.dispatchEvent(event);
-        })
-        .catch((error) => {
-          console.error(error);
-          element.innerHTML = `<p style="color: red;">Error al cargar ${file}</p>`;
-        });
+        }
+      } catch (err) {
+        console.warn(`No se pudo revalidar ${file} en segundo plano`, err);
+      }
+    } else {
+      // 3. Si no hay caché (primera visita), carga normal
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error(`No se pudo cargar el componente: ${file}`);
+        const html = await response.text();
+        
+        element.outerHTML = html;
+        localStorage.setItem(cacheKey, html); // Guardamos en caché para la próxima
+        dispatchLoaded();
+      } catch (error) {
+        console.error(error);
+        element.innerHTML = `<p style="color: red;">Error al cargar ${file}</p>`;
+      }
     }
   };
 
