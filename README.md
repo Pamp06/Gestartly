@@ -12,27 +12,27 @@
 
 ---
 
-### 🛠️ Requisitos Previos
+## 🛠️ Requisitos Previos
 
 Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 1. **Node.js**: Necesario para gestionar los paquetes de Firebase y el compilador de Tailwind.
    - [Descargar Node.js (LTS)](https://nodejs.org/)
-   - Verifica la instalación con: `node -v` y `npm -v`
+   *- Verifica la instalación con: `node -v` y `npm -v`*
 
 ---
 
-### ⚙️ Configuración de Firebase
+## ⚙️ Configuración de Firebase
 
 Sigue estos pasos para conectar el proyecto con los servicios de Google Cloud/Firebase:
 
-## 1. Instalación de Firebase Tools
+### 1. Instalación de Firebase Tools
 Instala las utilidades globales de Firebase en tu terminal:
 ```bash
 npm install -g firebase-tools
 ```
 
-## 2. Autenticación e Inicialización
+### 2. Autenticación e Inicialización
 Logueo: Inicia sesión con tu cuenta de Google:
 
 ```bash
@@ -44,15 +44,15 @@ Inicialización: Vincula este repositorio con tu proyecto actual:
 firebase init
 ```
 
-(Asegúrate de seleccionar el ID de proyecto de tu consola de Firebase).
+*(Asegúrate de seleccionar el ID de proyecto de tu consola de Firebase).*
 
-### 🎨 Estilos con Tailwind CSS (CLI)
+## 🎨 Estilos con Tailwind CSS (CLI)
 Para que los estilos se apliquen correctamente durante el desarrollo, debes compilar las clases de Tailwind.
 
-Compilación en Tiempo Real (Watch Mode)
+Compilación en Tiempo Real **(Watch Mode)**
 Ejecuta este comando en una terminal de VS Code mientras programas. Este "observará" tus cambios en el HTML y generará el archivo CSS final:
 
 ```bash
 npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch
 ```
-Nota: Ajusta las rutas ./src/input.css y ./dist/output.css según la ubicación real de tus archivos.
+*Nota: Ajusta las rutas ./src/input.css y ./dist/output.css según la ubicación real de tus archivos.*
