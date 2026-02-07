@@ -12,7 +12,7 @@
 
 ---
 
-## 🛠️ Requisitos Previos
+### 🛠️ Requisitos Previos
 
 Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
@@ -22,17 +22,17 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 ---
 
-## ⚙️ Configuración de Firebase
+### ⚙️ Configuración de Firebase
 
 Sigue estos pasos para conectar el proyecto con los servicios de Google Cloud/Firebase:
 
-### 1. Instalación de Firebase Tools
+## 1. Instalación de Firebase Tools
 Instala las utilidades globales de Firebase en tu terminal:
 ```bash
 npm install -g firebase-tools
 ```
 
-### 2. Autenticación e Inicialización
+## 2. Autenticación e Inicialización
 Logueo: Inicia sesión con tu cuenta de Google:
 
 ```bash
@@ -46,7 +46,7 @@ firebase init
 
 (Asegúrate de seleccionar el ID de proyecto de tu consola de Firebase).
 
-## 🎨 Estilos con Tailwind CSS (CLI)
+### 🎨 Estilos con Tailwind CSS (CLI)
 Para que los estilos se apliquen correctamente durante el desarrollo, debes compilar las clases de Tailwind.
 
 Compilación en Tiempo Real (Watch Mode)
