@@ -46,7 +46,7 @@ firebase init
 
 (Asegúrate de seleccionar el ID de proyecto de tu consola de Firebase).
 
-##🎨 Estilos con Tailwind CSS (CLI)
+## 🎨 Estilos con Tailwind CSS (CLI)
 Para que los estilos se apliquen correctamente durante el desarrollo, debes compilar las clases de Tailwind.
 
 Compilación en Tiempo Real (Watch Mode)
