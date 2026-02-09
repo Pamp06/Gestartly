@@ -43,16 +43,58 @@ Inicialización: Vincula este repositorio con tu proyecto actual:
 ```bash
 firebase init
 ```
-
 *(Asegúrate de seleccionar el ID de proyecto de tu consola de Firebase).*
 
-## 🎨 Estilos con Tailwind CSS (CLI)
+## 🎨Instalación y Uso del CLI de Tailwind
+
+### 1-Instalar Tailwind CSS
+Instalar *tailwindcssy* y *@tailwindcss/climediante* mediante npm.
+
+```bash
+npm install tailwindcss @tailwindcss/cli
+```
+
+### 2-Importa Tailwind en tu CSS
+Agregue la *'@import "tailwindcss";'* importación a su archivo CSS principal.
+
+Cree el archivo *input.css*, luego agregue la siguiente y unica linea al mismo archivo:
+
+```bash
+@import "tailwindcss";
+```
+
+### 3-Iniciar el proceso de compilación de Tailwind CLI
 Para que los estilos se apliquen correctamente durante el desarrollo, debes compilar las clases de Tailwind.
 
 Compilación en Tiempo Real **(Watch Mode)**
-Ejecuta este comando en una terminal de VS Code mientras programas. Este "observará" tus cambios en el HTML y generará el archivo CSS final:
+Ejecuta este comando en una terminal de VS Code mientras programas. Este "observará" tus cambios en el HTML y aplicara los estilos de las clases a la página:
 
 ```bash
-npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch
+npx @tailwindcss/cli -i ./input.css -o ./output.css --watch
 ```
-*Nota: Ajusta las rutas ./src/input.css y ./dist/output.css según la ubicación real de tus archivos.*
+*Nota: Ajusta las rutas ./src/input.css y ./dist/output.css según la ubicación real de tus archivos de Tailwind.*
+
+### 4-Comience a usar Tailwind en su HTML
+En los archivos HTML donde quiera utilizar las clases de Tailwind siempre debera agregar la siguiente línea dentro del *Head*
+
+```bash
+<link href="./output.css" rel="stylesheet">
+```
+
+### Ejemplo de como se deberia ver:
+
+```bash
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet"> <---------- Línea para el uso de las Clases de Tailwind
+</head>
+<body>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+</body>
+</html>
+```
