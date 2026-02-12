@@ -8,7 +8,7 @@ firebase-debug.log*
 firebase-debug.*.log*
 
 # Claves y API del Proyecto
-public/credenciales.js
+public/src/api/credenciales.js
 .env
 
 # Firebase cache
