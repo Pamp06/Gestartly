@@ -1,6 +1,6 @@
 /**
- * Inicializa los listeners de eventos para los elementos del Topbar.
- * Esto incluye el menú de usuario y el botón del menú móvil.
+ * Este script inicializa los listeners de eventos para los elementos del Topbar.
+ * Esto incluye el menú de usuario y el botón del menu móvil.
  */
 function initializeTopbarLogic() {
   const userMenuBtn = document.getElementById("userMenuBtn");
@@ -9,7 +9,7 @@ function initializeTopbarLogic() {
   const userMenuWrapper = document.getElementById("userMenuWrapper");
   const menuBtn = document.getElementById("menuBtn");
 
-  // --- Lógica del Menú de Usuario ---
+  // --- Lógica del Menu de Usuario ---
   if (userMenuBtn && userDropdown && arrowIcon && userMenuWrapper) {
     let menuOpen = false;
 
@@ -43,8 +43,6 @@ function initializeTopbarLogic() {
     });
   }
 
-  // La lógica del botón de menú móvil también depende del sidebar,
-  // así que la movemos a la inicialización del sidebar.
   const sidebar = document.getElementById("sidebar");
   const overlay = document.getElementById("overlay");
   // --- Lógica del Sidebar móvil ---
@@ -67,7 +65,7 @@ function initializeTopbarLogic() {
 
 /**
  * Inicializa los listeners de eventos para los elementos del Sidebar.
- * Esto incluye el botón de cerrar y el menú desplegable "Nuevo archivo".
+ * Esto incluye el boton de cerrar y el menú desplegable "Nuevo archivo".
  */
 function initializeSidebarLogic() {
   const sidebar = document.getElementById("sidebar");
@@ -75,7 +73,7 @@ function initializeSidebarLogic() {
   const closeBtn = document.getElementById("closeBtn");
   const bdesplegable = document.getElementById("bdesplegable");
   const mdesplegable = document.getElementById("mdesplegable");
-  const menuBtn = document.getElementById("menuBtn"); // Necesario para la lógica de abrir/cerrar
+  const menuBtn = document.getElementById("menuBtn");
 
   // --- Lógica del Menú desplegable "Nuevo archivo" ---
   if (bdesplegable && mdesplegable) {
@@ -121,11 +119,13 @@ function initializeSidebarLogic() {
   }
 }
 
-// Escuchamos el evento personalizado que dispara `component-loader.js`
+// Escuchamos el evento personalizado que dispara `component-loader.js 
+//* Aqui tambien se pueden editar las rutas hacia los componentes dinamicos topbar y sidebar`
+
 document.addEventListener("componentLoaded", (event) => {
-  if (event.detail.file === "topbar-component.html") {
+  if (event.detail.file === "components/topbar-component.html") {
     initializeTopbarLogic();
-  } else if (event.detail.file === "sidebar-component.html") {
+  } else if (event.detail.file === "components/sidebar-component.html") {
     initializeSidebarLogic();
   }
 });

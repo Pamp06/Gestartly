@@ -1,0 +1,20 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Define una función para verificar si el usuario tiene la reclamación 'isDeveloper'
+    function isDeveloper() {
+      // request.auth.token contiene las reclamaciones personalizadas del usuario autenticado
+      return request.auth != null && request.auth.token.isDeveloper == true;
+    }
+
+    // Si no hay un usuario autenticado, o el usuario no es el desarrollador,
+    // NO se permite ninguna operación.
+    // Esta regla permite a los usuarios con la reclamación 'isDeveloper: true'
+    // leer, escribir, editar y borrar TODO en la base de datos.
+    match /{document=**} {
+      allow read, write: if isDeveloper();
+    }
+  }
+}

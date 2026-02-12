@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "documentosweb1-5df51"
-  }
+  },
+  "targets": {
+    "documentosweb1-5df51": {
+      "hosting": {
+        "web-principal": [
+          "gestartlyweb"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

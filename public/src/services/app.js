@@ -7,7 +7,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 // Credenciales del Proyecto
-import { firebaseConfig } from "./credenciales.js";
+import { firebaseConfig } from "../api/credenciales.js";
 
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
@@ -144,6 +144,6 @@ document.addEventListener("keydown", async (e) => {
 togglePassword.addEventListener("click", () => {
   const isPassword = passInput.type === "password";
   passInput.type = isPassword ? "text" : "password";
-  eyeIcon.src = isPassword ? "img/openeye.png" : "img/closeeye.png";
+  eyeIcon.src = isPassword ? "assets/icons/openeye.png" : "assets/icons/closeeye.png";
   eyeIcon.alt = isPassword ? "Ocultar contraseña" : "Mostrar contraseña";
 });

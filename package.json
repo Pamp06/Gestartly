@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@firebase/firestore": "^4.11.0",
+    "@supabase/supabase-js": "^2.95.3",
     "@tailwindcss/cli": "^4.1.14",
     "@tailwindcss/vite": "^4.1.17",
     "firebase": "^12.9.0",
